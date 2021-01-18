@@ -7,12 +7,12 @@ let rollCount: number;
 let bodyCount: number;
 
 const dice = [
-  '+-------+\r\n|       |\r\n|   ●   |\r\n|       |\r\n+-------+',
-  '+-------+\r\n| ●     |\r\n|       |\r\n|     ● |\r\n+-------+',
-  '+-------+\r\n| ●     |\r\n|   ●   |\r\n|     ● |\r\n+-------+',
-  '+-------+\r\n| ●   ● |\r\n|       |\r\n| ●   ● |\r\n+-------+',
-  '+-------+\r\n| ●   ● |\r\n|   ●   |\r\n| ●   ● |\r\n+-------+',
-  '+-------+\r\n| ●   ● |\r\n| ●   ● |\r\n| ●   ● |\r\n+-------+'
+  '+-------+\r\n|       |\r\n|   ●   |\r\n|       |\r\n+-------+\r\n',
+  '+-------+\r\n| ●     |\r\n|       |\r\n|     ● |\r\n+-------+\r\n',
+  '+-------+\r\n| ●     |\r\n|   ●   |\r\n|     ● |\r\n+-------+\r\n',
+  '+-------+\r\n| ●   ● |\r\n|       |\r\n| ●   ● |\r\n+-------+\r\n',
+  '+-------+\r\n| ●   ● |\r\n|   ●   |\r\n| ●   ● |\r\n+-------+\r\n',
+  '+-------+\r\n| ●   ● |\r\n| ●   ● |\r\n| ●   ● |\r\n+-------+\r\n'
 ];
 
 const reset = () => {
@@ -24,14 +24,14 @@ const reset = () => {
 };
 
 const printStats = () => {
-  console.log(`+------------------+----+`);
+  console.log(`\r\n+------------------+----+`);
   console.log(`| YOUR STAMINA     | ${numberFormat(stamina)} |`);
   console.log(`| YOUR PANIC LEVEL | ${numberFormat(panic)} |`);
   console.log(`| REMAINING ROLLS  | ${numberFormat(rollCount)} |`);
   console.log(`+------------------+----+`);
   console.log(`| ENEMY HEALTH     | ${numberFormat(enemyHealth)} |`);
   console.log(`| ENEMIES KILLED   | ${numberFormat(bodyCount)} |`);
-  console.log(`+------------------+----+\n`);
+  console.log(`+------------------+----+\r\n`);
 };
 
 const numberFormat = (number: number) => {
@@ -52,34 +52,34 @@ const rollDice = () => {
 
 const gameTurn = () => {
   const roll = rollDice();
-  console.log(`\n${dice[roll - 1]}`);
-  console.log(`\nYou roll a ${roll}.`);
+  console.log(`${dice[roll - 1]}`);
+  console.log(`You roll a ${roll}.`);
   switch (roll) {
     case 1:
-      console.log(`The user gets health, and their panic level increases by 2.\n`);
+      console.log(`The user gets health, and their panic level increases by 2.`);
       panic += 2;
       break;
     case 2:
-      console.log(`The user dodges the attack, but their stamina is reduced by 1.\n`);
+      console.log(`The user dodges the attack, but their stamina is reduced by 1.`);
       stamina -= 1;
       break;
     case 3:
-      console.log(`The user deflects the attack. There is no stat change.\n`);
+      console.log(`The user deflects the attack. There is no stat change.`);
       break;
     case 4:
-      console.log(`The enemy backs away; the user’s stamina increases by 1.\n`);
+      console.log(`The enemy backs away; the user’s stamina increases by 1.`);
       stamina += 1;
       break;
     case 5:
       console.log(
-        `The enemy dodges, but the user strikes a glancing blow. The user’s panic is reduced by 1. The enemy loses 3 health points.\n`
+        `The enemy dodges, but the user strikes a glancing blow. The user’s panic is reduced by 1. The enemy loses 3 health points.`
       );
       panic -= 2;
       enemyHealth -= 3;
       break;
     case 6:
       console.log(
-        `The enemy takes significant damage. The user’s panic is reduced by 3. Their stamina is increased by 2. The enemy loses 5 health points.\n`
+        `The enemy takes significant damage. The user’s panic is reduced by 3. Their stamina is increased by 2. The enemy loses 5 health points.`
       );
       panic -= 3;
       stamina += 2;
@@ -96,27 +96,27 @@ const startApp = async () => {
   reset();
   while (rollCount < 10) {
     const ok = await yesno({
-      question: '\n> Roll dice? (Y/n)',
+      question: '> Roll dice? (Y/n)',
       defaultValue: true
     });
     if (ok) {
       gameTurn();
     } else {
-      console.log('\nTHERE IS NO ESCAPE!');
+      console.log('THERE IS NO ESCAPE!\r\n');
       gameTurn();
     }
     if (enemyHealth <= 0) {
-      console.log('Enemy dies, new enemy entering arena.\n');
+      console.log('Enemy dies, new enemy entering arena.\r\n');
       enemyHealth = 10;
       bodyCount += 1;
     }
     if (stamina === 0) {
-      console.log('You died, game over.\n');
+      console.log('You died, game over.\r\n');
       startApp();
     }
   }
   if (rollCount === 10 && enemyHealth > 0) {
-    console.log('You ran out of dice rolls, game over.\n');
+    console.log('You ran out of dice rolls, game over.\r\n');
     startApp();
   }
 };
