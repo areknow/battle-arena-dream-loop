@@ -1,19 +1,11 @@
 import yesno from 'yesno';
+import { DICE } from './constants';
 
 let stamina: number;
 let panic: number;
 let enemyHealth: number;
 let rollCount: number;
 let bodyCount: number;
-
-const dice = [
-  '+-------+\r\n|       |\r\n|   ●   |\r\n|       |\r\n+-------+\r\n',
-  '+-------+\r\n| ●     |\r\n|       |\r\n|     ● |\r\n+-------+\r\n',
-  '+-------+\r\n| ●     |\r\n|   ●   |\r\n|     ● |\r\n+-------+\r\n',
-  '+-------+\r\n| ●   ● |\r\n|       |\r\n| ●   ● |\r\n+-------+\r\n',
-  '+-------+\r\n| ●   ● |\r\n|   ●   |\r\n| ●   ● |\r\n+-------+\r\n',
-  '+-------+\r\n| ●   ● |\r\n| ●   ● |\r\n| ●   ● |\r\n+-------+\r\n'
-];
 
 const reset = () => {
   stamina = 10;
@@ -52,7 +44,7 @@ const rollDice = () => {
 
 const gameTurn = () => {
   const roll = rollDice();
-  console.log(`${dice[roll - 1]}`);
+  console.log(`${DICE[roll - 1]}`);
   console.log(`You roll a ${roll}.`);
   switch (roll) {
     case 1:
