@@ -88,7 +88,7 @@ const startApp = async () => {
   reset();
   while (rollCount < 10) {
     const ok = await yesno({
-      question: '> Roll dice? (Y/n)',
+      question: '> Roll dice? (Y/n)\r\n',
       defaultValue: true
     });
     if (ok) {
@@ -102,9 +102,10 @@ const startApp = async () => {
       enemyHealth = 10;
       bodyCount += 1;
     }
-    if (stamina === 0) {
+    if (stamina <= 0 || panic >= 20) {
       console.log('You died, game over.\r\n');
       startApp();
+      return;
     }
   }
   if (rollCount === 10 && enemyHealth > 0) {
