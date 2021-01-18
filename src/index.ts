@@ -1,3 +1,4 @@
+import { adjectives, animals, colors, Config, uniqueNamesGenerator } from 'unique-names-generator';
 import yesno from 'yesno';
 import { DICE } from './constants';
 
@@ -6,6 +7,14 @@ let panic: number;
 let enemyHealth: number;
 let rollCount: number;
 let bodyCount: number;
+let enemyName: string;
+
+const nameConfig: Config = {
+  dictionaries: [adjectives, colors, animals],
+  separator: ' ',
+  length: 3,
+  style: 'capital'
+};
 
 const reset = () => {
   stamina = 10;
@@ -13,6 +22,7 @@ const reset = () => {
   enemyHealth = 10;
   rollCount = 0;
   bodyCount = 0;
+  enemyName = uniqueNamesGenerator(nameConfig);
 };
 
 const printStats = () => {
@@ -46,6 +56,7 @@ const gameTurn = () => {
   const roll = rollDice();
   console.log(`${DICE[roll - 1]}`);
   console.log(`You roll a ${roll}.`);
+  console.log(`You are battling against the ${enemyName}.`);
   switch (roll) {
     case 1:
       console.log(`The user gets health, and their panic level increases by 2.`);
@@ -99,6 +110,7 @@ const startApp = async () => {
     }
     if (enemyHealth <= 0) {
       console.log('Enemy dies, new enemy entering arena.\r\n');
+      enemyName = uniqueNamesGenerator(nameConfig);
       enemyHealth = 10;
       bodyCount += 1;
     }
