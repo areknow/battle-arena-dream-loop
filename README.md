@@ -32,8 +32,7 @@ $ npm build (build typescript)
 
 You roll a 5.
 You are battling against the Productive Copper Pinniped.
-The enemy dodges, but the user strikes a glancing blow. The user’s panic is reduced by 1.
-The enemy loses 3 health points.
+The enemy dodges, but the user strikes a glancing blow. The user’s panic is reduced by 1. The enemy loses 3 health points.
 
 +------------------+----+
 | YOUR STAMINA     |  3 |
