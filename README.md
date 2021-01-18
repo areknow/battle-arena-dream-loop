@@ -31,7 +31,7 @@ $ npm build (build typescript)
 +-------+
 
 You roll a 4.
-You are battling against the Thirsty Amaranth Stork.
+You are battling against the Worried Coral Monkey.
 The enemy backs away; the user’s stamina increases by 1.
 
 +------------------+----+
