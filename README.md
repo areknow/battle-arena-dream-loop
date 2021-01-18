@@ -14,7 +14,8 @@ $ npm start
 ## Development
 
 ```
-$ npm watch (starts the typescript compilation watch)
+$ npm watch (build typescript on change)
+$ npm build (build typescript)
 ```
 
 ## Example output
