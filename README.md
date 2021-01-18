@@ -23,21 +23,23 @@ $ npm build (build typescript)
 ```
 > Roll dice? (Y/n)
 
+
 +-------+
 | ●   ● |
-|   ●   |
+|       |
 | ●   ● |
 +-------+
 
-You roll a 5.
-The enemy dodges, but the user strikes a glancing blow. The user’s panic is reduced by 1. The enemy loses 3 health points.
+You roll a 4.
+You are battling against the Thirsty Amaranth Stork.
+The enemy backs away; the user’s stamina increases by 1.
 
 +------------------+----+
 | YOUR STAMINA     |  4 |
-| YOUR PANIC LEVEL | 12 |
+| YOUR PANIC LEVEL |  6 |
 | REMAINING ROLLS  | 10 |
 +------------------+----+
-| ENEMY HEALTH     |  7 |
+| ENEMY HEALTH     |  1 |
 | ENEMIES KILLED   |  1 |
 +------------------+----+
 
