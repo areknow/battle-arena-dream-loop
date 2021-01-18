@@ -29,7 +29,7 @@ const printStats = () => {
   console.log(`\r\n+------------------+----+`);
   console.log(`| YOUR STAMINA     | ${numberFormat(stamina)} |`);
   console.log(`| YOUR PANIC LEVEL | ${numberFormat(panic)} |`);
-  console.log(`| REMAINING ROLLS  | ${numberFormat(rollCount)} |`);
+  console.log(`| REMAINING ROLLS  | ${numberFormat(10 - rollCount)} |`);
   console.log(`+------------------+----+`);
   console.log(`| ENEMY HEALTH     | ${numberFormat(enemyHealth)} |`);
   console.log(`| ENEMIES KILLED   | ${numberFormat(bodyCount)} |`);

@@ -31,15 +31,15 @@ $ npm build (build typescript)
 +-------+
 
 You roll a 4.
-You are battling against the Worried Coral Monkey.
-The enemy backs away; the user’s stamina increases by 1.
+You are battling against the Important Amethyst Lemming.
+The user gets health, and their panic level increases by 2.
 
 +------------------+----+
-| YOUR STAMINA     |  4 |
-| YOUR PANIC LEVEL |  6 |
-| REMAINING ROLLS  | 10 |
+| YOUR STAMINA     |  6 |
+| YOUR PANIC LEVEL | 14 |
+| REMAINING ROLLS  |  0 |
 +------------------+----+
-| ENEMY HEALTH     |  1 |
+| ENEMY HEALTH     |  7 |
 | ENEMIES KILLED   |  1 |
 +------------------+----+
 
